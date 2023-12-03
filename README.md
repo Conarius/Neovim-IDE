@@ -76,13 +76,13 @@ Have GHCUp installed on your system. Instructions can be found [here](https://ww
 ### On Linux and macOS
 
 ```sh
-git clone https://github.com/Conarius/Neovim-IDE/config/nvim ~/.config/nvim --depth 1 && nvim
+git clone https://github.com/Conarius/Neovim-IDE.git ~/.config/nvim --depth 1 && nvim
 ```
 
 ### On Windows
 
 ```sh
-git clone https://github.com/Conarius/Neovim-IDE/config/nvim $HOME\AppData\Local\nvim --depth 1 && nvim
+git clone https://github.com/Conarius/Neovim-IDE.git $HOME\AppData\Local\nvim --depth 1 && nvim
 ```
 
 ## Post Installation
