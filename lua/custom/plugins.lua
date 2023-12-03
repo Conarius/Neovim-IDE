@@ -93,6 +93,7 @@ local plugins = {
         "clang-format",
         "codelldb",
         --lua stuff
+        "lua-language-server",
         "stylua",
         "selene",
         --go stuff
@@ -121,7 +122,7 @@ local plugins = {
         "markdownlint",
         "mdformat",
         "markdown-toc",
-        "cbformat",
+        "cbfmt",
         --latex stuff
         "texlab",
         "latexindent",

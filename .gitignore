@@ -39,8 +39,4 @@ luac.out
 *.x86_64
 *.hex
 
-./config/nvim/.git
-./config/nvim/.github/
-./config/nvim/lazy-lock.json
-./config/nvim/LICENSE
-./config/nvim/.gitignore
+lazy-lock.json
