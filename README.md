@@ -2,7 +2,44 @@
 
 This is my Neovim config with everything you need for a full fledged IDE experience
 
+## Features
+
+- Preconfigured Autocompletion, Debugging, Formatting and Linting for Rust, Go, C/C++, JS/TS and Lua
+- Easy installation for LSPs, Debuggers, Linters and Formatters via [mason.nvim](https://github.com/williamboman/mason.nvim)
+- Schemas for yaml, json and toml files you need via [Schemastore.nvim](https://github.com/b0o/SchemaStore.nvim)
+- Debugging via [nvim-dap](https://github.com/mfussenegger/nvim-dap)
+- A UI interface when running a debugger via [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
+- LSP Configuration via [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- Inline hints for linters via [none-ls](https://github.com/nvimtools/none-ls.nvim)
+- Formatting on save via [none-ls](https://github.com/nvimtools/none-ls.nvim)
+- Preconfigured catppuccin theme, theme can be changed through Space+th
+- Github Integration via [Octo.nvim](https://github.com/pwntester/octo.nvim)
+- Gitui integration for a good git workflow via [Gitui.nvim](https://github.com/brneor/gitui.nvim)
+- Test runner for your test suite via [neotest](https://github.com/nvim-neotest/neotest)
+- Note Taking via [neorg](https://github.com/nvim-neorg/neorg)
+- tmux integration via [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+- Markdown preview via [Glow.nvim](https://github.com/ellisonleao/glow.nvim)
+- LaTeX PDF Preview via [knap](https://github.com/frabjous/knap)
+- Sleak UI for interacting with Vim commands via [noice.nvim](https://github.com/folke/noice.nvim)
+- Notifications in the top right corner via [nvim-notify](https://github.com/rcarriga/nvim-notify)
+
 ## Prerequesits
+
+### Glow
+
+For the markdown preview, [Glow](https://github.com/ellisonleao/glow.nvim) is required.
+
+### Gitui
+
+For the gitui plugin, [gitui](https://github.com/extrawurst/gitui) is required.
+
+### Github CLI
+
+For the Github Integration, the [Github CLI](https://github.com/cli/cli#installation) is required.
+
+### Sioyek
+
+For the LaTeX pdf preview [Sioyek](https://sioyek.info/) is required.
 
 ### Neovim and NVChad
 
