@@ -13,8 +13,10 @@ This is my Neovim config with everything you need for a full fledged IDE experie
 - Inline hints for linters via [none-ls](https://github.com/nvimtools/none-ls.nvim)
 - Formatting on save via [none-ls](https://github.com/nvimtools/none-ls.nvim)
 - Preconfigured catppuccin theme, theme can be changed through Space+th
+- Folding of functions, classes, etc. via [nvim-origami](https://github.com/chrisgrieser/nvim-origami)
 - Github Integration via [Octo.nvim](https://github.com/pwntester/octo.nvim)
 - Gitui integration for a good git workflow via [Gitui.nvim](https://github.com/brneor/gitui.nvim)
+- All inline comments from linters and LSPs within a small windows at the bottom via [trouble.nvim](https://github.com/folke/trouble.nvim)
 - Test runner for your test suite via [neotest](https://github.com/nvim-neotest/neotest)
 - Note Taking via [neorg](https://github.com/nvim-neorg/neorg)
 - tmux integration via [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
@@ -22,6 +24,7 @@ This is my Neovim config with everything you need for a full fledged IDE experie
 - LaTeX PDF Preview via [knap](https://github.com/frabjous/knap)
 - Sleak UI for interacting with Vim commands via [noice.nvim](https://github.com/folke/noice.nvim)
 - Notifications in the top right corner via [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- A Discord Rich Presence via [presence.nvim](https://github.com/andweeb/presence.nvim)
 
 ## Prerequesits
 
@@ -67,9 +70,9 @@ Have Cargo installed on your system. Instructions can be found [here](https://ru
 
 Have Go/Golang installed on your system. Instructions can be found [here](https://go.dev/doc/install)
 
-### GHCUp
+### GHCUp, Cargo and Stack
 
-Have GHCUp installed on your system. Instructions can be found [here](https://www.haskell.org/ghcup/install/)
+Have GHCUp installed on your system. Instructions can be found [here](https://www.haskell.org/ghcup/install/). With ghcup installed you should then install cabal and stack through ghcup itself.
 
 ## Installation
 
@@ -87,4 +90,4 @@ git clone https://github.com/Conarius/Neovim-IDE.git $HOME\AppData\Local\nvim --
 
 ## Post Installation
 
-After you have installed it, Neovim will ask you if you wanna install the example config. Enter n for no. After you have done that, run `:Lazy update` and `:Mason` to update all the neovim plugins. Also don't forget to install all the necessary TreeSitter parsers for all the languages via `:TSInstall <enter language/file format here>`. All available parsers can be listed via `:TSInstallInfo`
+After you have installed it, Neovim may ask you if you wanna install the example config. Enter n for no. After you have done that, run `:Lazy update` and `:Mason` to update all the neovim plugins. Also don't forget to install all the necessary TreeSitter parsers for all the languages via `:TSInstall <enter language/file format here>`. All available parsers can be listed via `:TSInstallInfo`

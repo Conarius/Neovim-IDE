@@ -308,6 +308,15 @@ local plugins = {
     "folke/trouble.nvim",
     event = "VeryLazy",
   },
+  {
+    "andweeb/presence.nvim",
+    event = "VeryLazy",
+  },
+  {
+    "chrisgrieser/nvim-origami",
+    event = "BufReadPost",
+    opts = true,
+  },
 }
 
 return plugins
