@@ -1,6 +1,6 @@
 # Neovim-IDE
 
-This is my Neovim config with everything you need for a full fledged IDE experience
+This is my Neovim config with everything you need for a full fledged IDE experience. Based on NvChad.
 
 ## Features
 
@@ -91,3 +91,7 @@ git clone https://github.com/Conarius/Neovim-IDE.git $HOME\AppData\Local\nvim --
 ## Post Installation
 
 After you have installed it, Neovim may ask you if you wanna install the example config. Enter n for no. After you have done that, run `:Lazy update` and `:Mason` to update all the neovim plugins. Also don't forget to install all the necessary TreeSitter parsers for all the languages via `:TSInstall <enter language/file format here>`. All available parsers can be listed via `:TSInstallInfo`
+
+## Special thanks
+
+Special thanks to [siduck](https://github.com/siduck) for [NVChad](https://github.com/NvChad/NvChad), the none-ls team for maintaining **the fork** of null-ls, [williamboman](https://github.com/williamboman) for his work on Mason and the mason ragistry.
