@@ -18,6 +18,7 @@ This is my Neovim config with everything you need for a full fledged IDE experie
 - Gitui integration for a good git workflow via [Gitui.nvim](https://github.com/brneor/gitui.nvim)
 - All inline comments from linters and LSPs within a small windows at the bottom via [trouble.nvim](https://github.com/folke/trouble.nvim)
 - Test runner for your test suite via [neotest](https://github.com/nvim-neotest/neotest)
+- Code Runner like in vscode, integrates with nvim-dap and neotest, via [overseer.nvim](https://github.com/stevearc/overseer.nvim)
 - Note Taking via [neorg](https://github.com/nvim-neorg/neorg)
 - tmux integration via [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - Markdown preview via [Glow.nvim](https://github.com/ellisonleao/glow.nvim)
