@@ -213,31 +213,11 @@ local plugins = {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                notes = "~/notes",
-              },
-            },
-          },
-          ["core.completion"] = {
-            config = {
-              engine = "nvim-cmp",
-              name = "[Neorg]",
-            },
-          },
-          ["core.summary"] = {
-            config = {
-              strategy = "default",
-            },
-          },
-        },
-      }
+    opts = function()
+      return require "custom.configs.neorg"
+    end,
+    config = function(_, opts)
+      require("neorg").setup(opts)
     end,
   },
   {
