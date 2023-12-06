@@ -10,6 +10,13 @@ local opts = {
     },
     require "neotest-rust",
   },
+  consumers = {
+    overseer = require "neotest.consumers.overseer",
+  },
+  overseer = {
+    enabled = true,
+    force_default = true,
+  },
 }
 
 return opts

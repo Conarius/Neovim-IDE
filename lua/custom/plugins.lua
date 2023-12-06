@@ -283,6 +283,11 @@ local plugins = {
     event = "BufReadPost",
     opts = true,
   },
+  {
+    "stevearc/overseer.nvim",
+    lazy = "false",
+    opts = {},
+  },
 }
 
 return plugins
