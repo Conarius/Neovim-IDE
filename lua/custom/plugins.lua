@@ -202,25 +202,11 @@ local plugins = {
       "rcarriga/nvim-notify",
       "MunifTanjim/nui.nvim",
     },
+    opts = function()
+      return require "custom.configs.noice"
+    end,
     config = function(_, opts)
-      require("noice").setup {
-        lsp = {
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-          hover = {
-            enabled = false,
-          },
-          signature = {
-            enabled = false,
-          },
-        },
-        presets = {
-          command_palette = true,
-        },
-      }
+      require("noice").setup(opts)
     end,
   },
   {
