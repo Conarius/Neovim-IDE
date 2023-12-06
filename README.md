@@ -1,6 +1,6 @@
 # Neovim-IDE
 
-This is my Neovim config with everything you need for a full fledged IDE experience. Based on NvChad.
+This is my Neovim config based on NvChad with everything you need for a full fledged IDE experience
 
 ## Features
 
