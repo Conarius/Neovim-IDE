@@ -42,10 +42,15 @@ This is my Neovim config based on NvChad with everything you need for a full fle
 - Code Runner like in vscode, integrates with nvim-dap and neotest, via [overseer.nvim](https://github.com/stevearc/overseer.nvim)
 - Note Taking via [neorg](https://github.com/nvim-neorg/neorg)
 - tmux integration via [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+- Hints and learning vim motions as you use nvim via [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
+- Hints for giving up bad practices via [bad-practices.nvim](https://github.com/antonk52/bad-practices.nvim)
 - Markdown preview via [Glow.nvim](https://github.com/ellisonleao/glow.nvim)
+- Automatically creating a TOC via [nvim-toc](https://github.com/richardbizik/nvim-toc)
 - LaTeX PDF Preview via [knap](https://github.com/frabjous/knap)
 - Sleak UI for interacting with Vim commands via [noice.nvim](https://github.com/folke/noice.nvim)
 - Notifications in the top right corner via [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- Smooth scrolling via [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim)
+- A codewindows outliner like in vscode via [codewindow.nvim](https://github.com/gorbit99/codewindow.nvim)
 - A Discord Rich Presence via [presence.nvim](https://github.com/andweeb/presence.nvim)
 
 ## Prerequesits
