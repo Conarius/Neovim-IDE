@@ -19,7 +19,6 @@ local opts = {
     null_ls.builtins.formatting.yamlfmt,
     null_ls.builtins.diagnostics.chktex,
     null_ls.builtins.diagnostics.markdownlint,
-    null_ls.builtins.formatting.markdown_toc,
     null_ls.builtins.formatting.mdformat,
     null_ls.builtins.formatting.taplo,
     null_ls.builtins.diagnostics.jsonlint,

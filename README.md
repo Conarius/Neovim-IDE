@@ -2,6 +2,27 @@
 
 This is my Neovim config based on NvChad with everything you need for a full fledged IDE experience
 
+# Table of contents
+
+1. [Features](#features)
+1. [Prerequesits](#prerequesits)
+   1. [Glow](#glow)
+   1. [Gitui](#gitui)
+   1. [Github CLI](#github-cli)
+   1. [Sioyek](#sioyek)
+   1. [Neovim and NVChad](#neovim-and-nvchad)
+   1. [node and npm](#node-and-npm)
+   1. [Python and pip](#python-and-pip)
+   1. [PHP and Composer](#php-and-composer)
+   1. [Cargo](#cargo)
+   1. [Go](#go)
+   1. [GHCUp, Cargo and Stack](#ghcup,-cargo-and-stack)
+1. [Installation](#installation)
+   1. [On Linux and macOS](#on-linux-and-macos)
+   1. [On Windows](#on-windows)
+1. [Post Installation](#post-installation)
+1. [Special thanks](#special-thanks)
+
 ## Features
 
 - Preconfigured Autocompletion, Debugging, Formatting and Linting for Rust, Go, C/C++, JS/TS and Lua

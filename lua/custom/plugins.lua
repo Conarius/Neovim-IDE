@@ -121,7 +121,6 @@ local plugins = {
         "marksman",
         "markdownlint",
         "mdformat",
-        "markdown-toc",
         "cbfmt",
         --latex stuff
         "texlab",
@@ -291,6 +290,40 @@ local plugins = {
       require("overseer").setup {
         dap = true,
       }
+    end,
+  },
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup {}
+    end,
+  },
+  {
+    "gorbit99/codewindow.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("codewindow").setup()
+      require("codewindow").apply_default_keybinds()
+    end,
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {},
+  },
+  {
+    "antonk52/bad-practices.nvim",
+    lazy = false,
+  },
+  {
+    "richardbizik/nvim-toc",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-toc").setup {}
     end,
   },
 }
