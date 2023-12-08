@@ -326,6 +326,9 @@ local plugins = {
       require("nvim-toc").setup {}
     end,
   },
+  {
+    "jbyuki/instant.nvim",
+  },
 }
 
 return plugins

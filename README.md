@@ -44,6 +44,7 @@ This is my Neovim config based on NvChad with everything you need for a full fle
 - tmux integration via [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 - Hints and learning vim motions as you use nvim via [hardtime.nvim](https://github.com/m4xshen/hardtime.nvim)
 - Hints for giving up bad practices via [bad-practices.nvim](https://github.com/antonk52/bad-practices.nvim)
+- Collaborative editing via [instant.nvim](https://github.com/jbyuki/instant.nvim)
 - Markdown preview via [Glow.nvim](https://github.com/ellisonleao/glow.nvim)
 - Automatically creating a TOC via [nvim-toc](https://github.com/richardbizik/nvim-toc)
 - LaTeX PDF Preview via [knap](https://github.com/frabjous/knap)
