@@ -246,6 +246,7 @@ local plugins = {
       "nvim-neotest/neotest-python",
       "vim-test/vim-test",
       "nvim-neotest/neotest-vim-test",
+      "alfaix/neotest-gtest",
     },
     opts = function()
       return require "custom.configs.neotest"
