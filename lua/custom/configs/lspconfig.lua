@@ -144,7 +144,16 @@ lspconfig.lemminx.setup {
 }
 
 lspconfig.powershell_es.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
   bundle_path = "%USERPROFILE\\AppData\\Local\\nvim-data\\mason\\packages\\powershell-editor-services\\PowerShellEditorServices",
   filetypes = { "ps1" },
   shell = "pwsh",
+}
+
+lspconfig.asm_lsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "asm-lsp" },
+  filetypes = { "asm", "vmasm" },
 }

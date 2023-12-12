@@ -135,6 +135,8 @@ local plugins = {
         "xmlformatter",
         --powershell
         "powershell-editor-services",
+        --asm stuff
+        "asm-lsp",
       },
     },
   },
