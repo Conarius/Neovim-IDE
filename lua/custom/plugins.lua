@@ -133,6 +133,8 @@ local plugins = {
         --xml stuff
         "lemminx",
         "xmlformatter",
+        --powershell
+        "powershell-editor-services",
       },
     },
   },

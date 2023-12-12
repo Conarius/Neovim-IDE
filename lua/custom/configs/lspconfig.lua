@@ -142,3 +142,9 @@ lspconfig.lemminx.setup {
   filetypes = { "xml", "xsd", "xsl", "xslt", "svg" },
   root_dir = util.find_git_ancestor(),
 }
+
+lspconfig.powershell_es.setup {
+  bundle_path = "%USERPROFILE\\AppData\\Local\\nvim-data\\mason\\packages\\powershell-editor-services\\PowerShellEditorServices",
+  filetypes = { "ps1" },
+  shell = "pwsh",
+}
