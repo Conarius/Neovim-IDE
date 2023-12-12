@@ -9,7 +9,7 @@ local opts = {
       ignore_file_types = { "python", "vim", "lua", "rust" },
     },
     require "neotest-rust",
-    require("neotest-gtest").setup(),
+    require "neotest-gtest",
   },
   consumers = {
     overseer = require "neotest.consumers.overseer",
