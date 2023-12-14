@@ -21,3 +21,18 @@ for _, language in ipairs { "typescript", "javscript" } do
     },
   }
 end
+
+dap.adapters.php = {
+  type = "executable",
+  command = "node",
+  args = { "%USERPROFILE%\\AppData\\Local\\nvim-data\\mason\\packages\\php-debug-adapter\\extension\\out" },
+}
+
+dap.configurations.php = {
+  {
+    type = "php",
+    request = "launch",
+    name = "Listen for Xdebug",
+    port = 9000,
+  },
+}

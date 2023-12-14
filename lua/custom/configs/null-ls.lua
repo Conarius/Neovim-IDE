@@ -26,6 +26,9 @@ local opts = {
     null_ls.builtins.diagnostics.commitlint,
     null_ls.builtins.diagnostics.actionlint,
     null_ls.builtins.formatting.xmlformat,
+    null_ls.builtins.diagnostics.phpstan,
+    null_ls.builtins.formatting.pint,
+    null_ls.builtins.formatting.blade_formatter,
     --hover stuff
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.hover.printenv,

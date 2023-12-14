@@ -137,6 +137,12 @@ local plugins = {
         "powershell-editor-services",
         --asm stuff
         "asm-lsp",
+        --php stuff
+        "intelephense",
+        "php-debug-adapter",
+        "phpstan",
+        "pint",
+        "blade-formatter",
       },
     },
   },
