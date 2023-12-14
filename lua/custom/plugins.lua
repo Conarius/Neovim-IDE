@@ -143,6 +143,11 @@ local plugins = {
         "phpstan",
         "pint",
         "blade-formatter",
+        --tailwind stuff
+        "tailwindcss-language-server",
+        "rustywind",
+        --editorconfig stuff
+        "editorconfig-checker",
       },
     },
   },
