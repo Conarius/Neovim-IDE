@@ -4,6 +4,63 @@ local plugins = {
     lazy = false,
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("nvim-treesitter.config").setup {
+        ensure_installed = {
+          "lua",
+          --go stuff
+          "go",
+          "gomod",
+          "gosum",
+          "gowork",
+          --c/cpp stuff
+          "c",
+          "cpp",
+          "make",
+          "cmake",
+          "meson",
+          "ninja",
+          --rust
+          "rust",
+          --yaml
+          "yaml",
+          --toml
+          "toml",
+          --xml
+          "xml",
+          --js/ts
+          "typescript",
+          "tsx",
+          "javascript",
+          --python
+          "python",
+          --json stuff
+          "json",
+          "json5",
+          "jsonc",
+          --vim stuff
+          "vim",
+          "regex",
+          --php stuff
+          "php",
+          --tex
+          "latex",
+          "bibtex",
+          --markdown
+          "markdown",
+          "markdown_inline",
+          --git stuff
+          "git_config",
+          "git_rebase",
+          "gitattributes",
+          "gitcommit",
+          "gitignore",
+        },
+      }
+    end,
+  },
+  {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
       require("core.utils").load_mappings "dap"
@@ -262,6 +319,7 @@ local plugins = {
       "vim-test/vim-test",
       "nvim-neotest/neotest-vim-test",
       "alfaix/neotest-gtest",
+      "olimorris/neotest-phpunit",
     },
     opts = function()
       return require "custom.configs.neotest"
