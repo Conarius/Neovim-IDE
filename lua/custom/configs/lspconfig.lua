@@ -255,3 +255,14 @@ lspconfig.tailwindcss.setup {
     },
   },
 }
+
+lspconfig.svelte.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {
+    "svelteserver",
+    "--stdio",
+  },
+  filetypes = { "svelte" },
+  root_dir = util.root_pattern("package.json", ".git"),
+}

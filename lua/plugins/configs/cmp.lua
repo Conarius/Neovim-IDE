@@ -1,5 +1,9 @@
 local cmp = require "cmp"
 
+cmp.config.formatting = {
+  formt = require("tailwindcss-colorizer-cmp").formatter,
+}
+
 dofile(vim.g.base46_cache .. "cmp")
 
 local cmp_ui = require("core.utils").load_config().ui.cmp

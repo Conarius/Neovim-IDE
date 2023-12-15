@@ -4,63 +4,6 @@ local plugins = {
     lazy = false,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("nvim-treesitter.config").setup {
-        ensure_installed = {
-          "lua",
-          --go stuff
-          "go",
-          "gomod",
-          "gosum",
-          "gowork",
-          --c/cpp stuff
-          "c",
-          "cpp",
-          "make",
-          "cmake",
-          "meson",
-          "ninja",
-          --rust
-          "rust",
-          --yaml
-          "yaml",
-          --toml
-          "toml",
-          --xml
-          "xml",
-          --js/ts
-          "typescript",
-          "tsx",
-          "javascript",
-          --python
-          "python",
-          --json stuff
-          "json",
-          "json5",
-          "jsonc",
-          --vim stuff
-          "vim",
-          "regex",
-          --php stuff
-          "php",
-          --tex
-          "latex",
-          "bibtex",
-          --markdown
-          "markdown",
-          "markdown_inline",
-          --git stuff
-          "git_config",
-          "git_rebase",
-          "gitattributes",
-          "gitcommit",
-          "gitignore",
-        },
-      }
-    end,
-  },
-  {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
       require("core.utils").load_mappings "dap"
@@ -205,6 +148,8 @@ local plugins = {
         "rustywind",
         --editorconfig stuff
         "editorconfig-checker",
+        --svelte
+        "svelte-language-server",
       },
     },
   },
@@ -402,6 +347,14 @@ local plugins = {
   },
   {
     "jbyuki/instant.nvim",
+  },
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup {
+        color_square_width = 2,
+      }
+    end,
   },
 }
 
