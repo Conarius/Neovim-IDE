@@ -46,6 +46,9 @@ local opts = {
     null_ls.builtins.formatting.rustywind,
     --editorconfig checker
     null_ls.builtins.diagnostics.editorconfig_checker,
+    --cmake
+    null_ls.builtins.diagnostics.cmake_lint,
+    null_ls.builtins.formatting.gersemi,
     --hover stuff
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.hover.printenv,

@@ -266,3 +266,19 @@ lspconfig.svelte.setup {
   filetypes = { "svelte" },
   root_dir = util.root_pattern("package.json", ".git"),
 }
+
+lspconfig.autotools_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "autotools-language-server" },
+  filetypes = { "config", "automake", "make" },
+  root_dir = { "configure.ac", "Makefile", "Makefile.am", "*.mk" },
+}
+
+lspconfig.neocmake.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "neocmakelsp", "--stdio" },
+  filetypes = { "cmake" },
+  root_dir = util.root_pattern(".git", "cmake"),
+}

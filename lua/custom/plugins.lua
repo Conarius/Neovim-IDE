@@ -150,6 +150,12 @@ local plugins = {
         "editorconfig-checker",
         --svelte
         "svelte-language-server",
+        --autotools/make
+        "autotools-language-server",
+        --cmake
+        "neocmakelsp",
+        "gersemi",
+        "cmakelint",
       },
     },
   },
