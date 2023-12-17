@@ -272,7 +272,7 @@ lspconfig.autotools_ls.setup {
   capabilities = capabilities,
   cmd = { "autotools-language-server" },
   filetypes = { "config", "automake", "make" },
-  root_dir = { "configure.ac", "Makefile", "Makefile.am", "*.mk" },
+  root_dir = util.root_pattern("configure.ac", "Makefile", "Makefile.am", "*.mk"),
 }
 
 lspconfig.neocmake.setup {
@@ -281,4 +281,15 @@ lspconfig.neocmake.setup {
   cmd = { "neocmakelsp", "--stdio" },
   filetypes = { "cmake" },
   root_dir = util.root_pattern(".git", "cmake"),
+}
+
+lspconfig.ruby_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "ruby-lsp" },
+  filetypes = "ruby",
+  init_options = {
+    formatter = false,
+  },
+  root_dir = util.root_pattern("Gemfile", ".git"),
 }

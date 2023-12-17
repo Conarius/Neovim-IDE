@@ -49,6 +49,9 @@ local opts = {
     --cmake
     null_ls.builtins.diagnostics.cmake_lint,
     null_ls.builtins.formatting.gersemi,
+    --ruby stuff
+    null_ls.builtins.diagnostics.standardrb,
+    null_ls.builtins.formatting.standardrb,
     --hover stuff
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.hover.printenv,

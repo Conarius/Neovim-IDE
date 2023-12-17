@@ -47,6 +47,17 @@ local plugins = {
     end,
   },
   {
+    "suketa/nvim-dap-ruby",
+    ft = "ruby",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function(_, opts)
+      require("dap-ruby").setup()
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -156,6 +167,10 @@ local plugins = {
         "neocmakelsp",
         "gersemi",
         "cmakelint",
+        --ruby stuff
+        "ruby-lsp",
+        "standardrb",
+        "erb-lint",
       },
     },
   },
@@ -271,6 +286,7 @@ local plugins = {
       "nvim-neotest/neotest-vim-test",
       "alfaix/neotest-gtest",
       "olimorris/neotest-phpunit",
+      "olimorris/neotest-rspec",
     },
     opts = function()
       return require "custom.configs.neotest"
