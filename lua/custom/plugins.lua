@@ -287,6 +287,7 @@ local plugins = {
       "alfaix/neotest-gtest",
       "olimorris/neotest-phpunit",
       "olimorris/neotest-rspec",
+      "zidhuss/neotest-minitest",
     },
     opts = function()
       return require "custom.configs.neotest"

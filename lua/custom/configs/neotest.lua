@@ -21,6 +21,7 @@ local opts = {
       end,
       root_files = { "README.md" },
     },
+    require "neotest-minitest",
   },
   consumers = {
     overseer = require "neotest.consumers.overseer",
