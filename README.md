@@ -25,7 +25,7 @@ This is my Neovim config based on NvChad with everything you need for a full fle
 
 ## Features
 
-- Preconfigured Autocompletion, Debugging, Formatting and Linting for Rust, Go, C/C++, JS/TS, Lua, PHP, TailwindCSS, Svelte and Assembly
+- Preconfigured Autocompletion, Debugging, Formatting and Linting for Rust, Go, C/C++, JS/TS, Lua, PHP, TailwindCSS, Svelte, Assembly, Make and CMake + Ruby
 - Easy installation for LSPs, Debuggers, Linters and Formatters via [mason.nvim](https://github.com/williamboman/mason.nvim)
 - Schemas for yaml, json and toml files you need via [Schemastore.nvim](https://github.com/b0o/SchemaStore.nvim)
 - Debugging via [nvim-dap](https://github.com/mfussenegger/nvim-dap)

@@ -373,6 +373,7 @@ local plugins = {
   },
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
+    dependencies = { "nvim-cmp" },
     config = function()
       require("tailwindcss-colorizer-cmp").setup {
         color_square_width = 2,
