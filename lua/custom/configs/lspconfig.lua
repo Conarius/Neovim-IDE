@@ -293,3 +293,11 @@ lspconfig.ruby_ls.setup {
   },
   root_dir = util.root_pattern("Gemfile", ".git"),
 }
+
+lspconfig.swift_mesonls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "Swift-MesonLSP", "--lsp" },
+  filetypes = { "meson" },
+  root_dir = util.root_pattern("meson_options.txt", ".git"),
+}
