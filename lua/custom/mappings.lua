@@ -80,4 +80,18 @@ M.crates = {
   },
 }
 
+M.trouble = {
+  plugin = true,
+  n = {
+    ["<leader>tr"] = {
+      "<cmd> Trouble <CR>",
+      "Open Trouble.nvim",
+    },
+    ["<leader>trd"] = {
+      "<cmd> Trouble document_diagnostics <CR>",
+      "Open Trouble for the current file",
+    },
+  },
+}
+
 return M

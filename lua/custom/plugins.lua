@@ -314,6 +314,9 @@ local plugins = {
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
+    config = function()
+      require("core.utils").load_mappings "trouble"
+    end,
   },
   {
     "andweeb/presence.nvim",
