@@ -49,6 +49,8 @@ local opts = {
     --cmake
     null_ls.builtins.diagnostics.cmake_lint,
     null_ls.builtins.formatting.gersemi,
+    --make stuff
+    null_ls.builtins.diagnostics.checkmake,
     --ruby stuff
     null_ls.builtins.diagnostics.standardrb,
     null_ls.builtins.formatting.standardrb,

@@ -30,8 +30,15 @@ local plugins = {
       handlers = {},
       ensure_installed = {
         "codelldb",
+        "delve",
+        "debugpy",
+        "js-debug-adapter",
+        "php-debug-adapter",
       },
     },
+    config = function(_, opts)
+      require("mason-nvim-dap").setup(opts)
+    end,
   },
   {
     "mfussenegger/nvim-dap-python",
@@ -167,6 +174,8 @@ local plugins = {
         "neocmakelsp",
         "gersemi",
         "cmakelint",
+        --meson
+        "swift-mesonlsp",
         --ruby stuff
         "ruby-lsp",
         "standardrb",
