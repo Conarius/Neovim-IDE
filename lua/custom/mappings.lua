@@ -44,13 +44,11 @@ M.dap_go = {
       end,
       "Debug go test",
     },
-    {
-      ["<leader>dgl"] = {
-        function()
-          require("dap-go").debug_last()
-        end,
-        "Debug last go test",
-      },
+    ["<leader>dgl"] = {
+      function()
+        require("dap-go").debug_last()
+      end,
+      "Debug last go test",
     },
   },
 }
