@@ -18,7 +18,7 @@ local opts = {
     null_ls.builtins.formatting.golines,
     --js/ts stuff
     null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.formatting.prettier_d,
+    null_ls.builtins.formatting.prettierd,
     --yaml stuff
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.formatting.yamlfmt,
