@@ -334,6 +334,7 @@ local plugins = {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-plenary",
       "rouge8/neotest-rust",
       "nvim-neotest/neotest-python",
