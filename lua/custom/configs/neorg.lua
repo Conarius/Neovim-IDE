@@ -20,6 +20,7 @@ local opts = {
         strategy = "default",
       },
     },
+    ["core.integrations.telescope"] = {},
   },
 }
 
