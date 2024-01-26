@@ -133,6 +133,12 @@ lspconfig.jsonls.setup {
     provideFormatter = false,
   },
   root_dir = util.find_git_ancestor(),
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
+    },
+  },
 }
 
 lspconfig.lemminx.setup {
@@ -300,4 +306,19 @@ lspconfig.swift_mesonls.setup {
   cmd = { "Swift-MesonLSP", "--lsp" },
   filetypes = { "meson" },
   root_dir = util.root_pattern("meson_options.txt", ".git"),
+}
+
+lspconfig.dockerls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "docker-langserver", "--stdio" },
+  filetypes = { "dockerfile" },
+  root_dir = util.root_pattern "Dockerfile",
+}
+
+lspconfig.typst_lsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "typst-lsp" },
+  filetypes = { "typst" },
 }

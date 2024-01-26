@@ -17,7 +17,7 @@ local opts = {
     null_ls.builtins.formatting.goimports_reviser,
     null_ls.builtins.formatting.golines,
     --js/ts stuff
-    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.formatting.prettierd,
     --yaml stuff
     null_ls.builtins.diagnostics.yamllint,
@@ -54,6 +54,17 @@ local opts = {
     --ruby stuff
     null_ls.builtins.diagnostics.standardrb,
     null_ls.builtins.formatting.standardrb,
+    --dotenv
+    null_ls.builtins.diagnostics.dotenv_linter,
+    --docker
+    null_ls.builtins.diagnostics.hadolint,
+    --java stuff
+    null_ls.builtins.diagnostics.checkstyle.with {
+      extra_args = { "-c", "/google_checks.xml" },
+    },
+    null_ls.builtins.formatting.google_java_format,
+    --typst stuff
+    null_ls.builtins.formatting.typstfmt,
     --hover stuff
     null_ls.builtins.hover.dictionary,
     null_ls.builtins.hover.printenv,
