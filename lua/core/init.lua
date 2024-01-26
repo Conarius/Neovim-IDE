@@ -8,6 +8,7 @@ g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
 g.instant_username = "Conarius"
+g.maplocalleader = ";"
 
 -------------------------------------- options ------------------------------------------
 opt.laststatus = 3 -- global statusline
