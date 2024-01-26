@@ -65,6 +65,13 @@ local plugins = {
     end,
   },
   {
+    "folke/neoconf.nvim",
+    lazy = false,
+    config = function()
+      require("neoconf").setup {}
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -74,7 +81,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function()
-      opts = require "plugins.configs.treesitter"
+      local opts = require "plugins.configs.treesitter"
       opts.ensure_installed = {
         "lua",
         "rust",
@@ -113,6 +120,8 @@ local plugins = {
         "ruby",
         "regex",
         "vim",
+        "dockerfile",
+        "java",
       }
       return opts
     end,
@@ -226,6 +235,17 @@ local plugins = {
         "ruby-lsp",
         "standardrb",
         "erb-lint",
+        --docker stuff
+        "hadolint",
+        "dockerfile-language-server",
+        --java stuff
+        "jdtls",
+        "java-test",
+        "java-debug-adapter",
+        "checkstyle",
+        "google-java-format",
+        --typst stuff
+        "typst-lsp",
       },
     },
   },
@@ -276,6 +296,124 @@ local plugins = {
     end,
   },
   {
+    "mfussenegger/nvim-jdtls",
+    ft = { "java" },
+    opts = function()
+      return {
+        -- How to find the root dir for a given filename. The default comes from
+        -- lspconfig which provides a function specifically for java projects.
+        root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir,
+
+        -- How to find the project name for a given root dir.
+        project_name = function(root_dir)
+          return root_dir and vim.fs.basename(root_dir)
+        end,
+
+        -- Where are the config and workspace dirs for a project?
+        jdtls_config_dir = function(project_name)
+          return vim.fn.stdpath "cache" .. "/jdtls/" .. project_name .. "/config"
+        end,
+        jdtls_workspace_dir = function(project_name)
+          return vim.fn.stdpath "cache" .. "/jdtls/" .. project_name .. "/workspace"
+        end,
+
+        -- How to run jdtls. This can be overridden to a full java command-line
+        -- if the Python wrapper script doesn't suffice.
+        cmd = { vim.fn.exepath "jdtls" },
+        full_cmd = function(opts)
+          local fname = vim.api.nvim_buf_get_name(0)
+          local root_dir = opts.root_dir(fname)
+          local project_name = opts.project_name(root_dir)
+          local cmd = vim.deepcopy(opts.cmd)
+          if project_name then
+            vim.list_extend(cmd, {
+              "-configuration",
+              opts.jdtls_config_dir(project_name),
+              "-data",
+              opts.jdtls_workspace_dir(project_name),
+            })
+          end
+          return cmd
+        end,
+
+        -- These depend on nvim-dap, but can additionally be disabled by setting false here.
+        dap = { hotcodereplace = "auto", config_overrides = {} },
+        test = true,
+      }
+    end,
+    config = function()
+      local opts = util.opts "nvim-jdtls" or {}
+
+      -- Find the extra bundles that should be passed on the jdtls command-line
+      -- if nvim-dap is enabled with java debug/test.
+      local mason_registry = require "mason-registry"
+      local bundles = {} ---@type string[]
+      local java_dbg_pkg = mason_registry.get_package "java-debug-adapter"
+      local java_dbg_path = java_dbg_pkg:get_install_path()
+      local jar_patterns = {
+        java_dbg_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar",
+      }
+      -- java-test also depends on java-debug-adapter.
+      if opts.test and mason_registry.is_installed "java-test" then
+        local java_test_pkg = mason_registry.get_package "java-test"
+        local java_test_path = java_test_pkg:get_install_path()
+        vim.list_extend(jar_patterns, {
+          java_test_path .. "/extension/server/*.jar",
+        })
+      end
+      for _, jar_pattern in ipairs(jar_patterns) do
+        for _, bundle in ipairs(vim.split(vim.fn.glob(jar_pattern), "\n")) do
+          table.insert(bundles, bundle)
+        end
+      end
+
+      local function attach_jdtls()
+        local fname = vim.api.nvim_buf_get_name(0)
+
+        -- Configuration can be augmented and overridden by opts.jdtls
+        local config = {
+          cmd = opts.full_cmd(opts),
+          root_dir = opts.root_dir(fname),
+          init_options = {
+            bundles = bundles,
+          },
+          -- enable CMP capabilities
+          capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        }
+
+        -- Existing server will be reused if the root_dir matches.
+        require("jdtls").start_or_attach(config)
+        -- not need to require("jdtls.setup").add_commands(), start automatically adds commands
+      end
+
+      -- Attach the jdtls for each java buffer. HOWEVER, this plugin loads
+      -- depending on filetype, so this autocmd doesn't run for the first file.
+      -- For that, we call directly below.
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "java" },
+        callback = attach_jdtls,
+      })
+
+      -- Setup keymap and dap after the lsp is fully attached.
+      -- https://github.com/mfussenegger/nvim-jdtls#nvim-dap-configuration
+      -- https://neovim.io/doc/user/lsp.html#LspAttach
+
+      -- custom init for Java debugger
+      require("jdtls").setup_dap(opts.dap)
+      require("jdtls.dap").setup_dap_main_class_configs()
+
+      -- Java Test require Java debugger to work
+
+      -- User can set additional keymaps in opts.on_attach
+      if opts.on_attach then
+        opts.on_attach(args)
+      end
+
+      -- Avoid race condition by calling attach the first time, since the autocmd won't fire.
+      attach_jdtls()
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     opts = function()
       local M = require "plugins.configs.cmp"
@@ -304,6 +442,7 @@ local plugins = {
   {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
+    lazy = false,
     dependencies = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
     opts = function()
       return require "custom.configs.neorg"
@@ -344,6 +483,7 @@ local plugins = {
       "olimorris/neotest-phpunit",
       "olimorris/neotest-rspec",
       "zidhuss/neotest-minitest",
+      "rcasia/neotest-java",
     },
     opts = function()
       return require "custom.configs.neotest"
@@ -437,6 +577,63 @@ local plugins = {
       require("tailwindcss-colorizer-cmp").setup {
         color_square_width = 2,
       }
+    end,
+  },
+  {
+    "Civitasv/cmake-tools.nvim",
+    opts = {},
+    ft = { "cmake" },
+    event = "BufReadPost",
+  },
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup {}
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+  {
+    "folke/neodev.nvim",
+    opts = {},
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  {
+    "mrded/nvim-lsp-notify",
+    dependencies = { "rcarriga/nvim-notify" },
+    config = function()
+      require("lsp-notify").setup {
+        notify = require "notify",
+      }
+    end,
+  },
+  {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true,
+  },
+  {
+    "folke/drop.nvim",
+    event = "VimEnter",
+    config = function()
+      require("drop").setup {
+        theme = "snow",
+        filetypes = { "alpha" },
+      }
+    end,
+  },
+  {
+    "goolord/alpha-nvim",
+    event = "VimEnter",
+    config = function()
+      require("alpha").setup(require("alpha.themes.dashboard").config)
     end,
   },
 }
