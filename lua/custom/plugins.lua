@@ -116,7 +116,6 @@ local plugins = {
         "svelte",
         "make",
         "meson",
-        "cmake",
         "ruby",
         "regex",
         "vim",
@@ -125,6 +124,10 @@ local plugins = {
       }
       return opts
     end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    dependencies = "nvim-treesitter/nvim-treesitter",
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -264,15 +267,9 @@ local plugins = {
     end,
   },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function()
-      return require "custim.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    ft = { "rust" },
   },
   {
     "saecki/crates.nvim",
@@ -342,6 +339,7 @@ local plugins = {
       }
     end,
     config = function()
+      local util = require "core.util"
       local opts = util.opts "nvim-jdtls" or {}
 
       -- Find the extra bundles that should be passed on the jdtls command-line
@@ -405,9 +403,6 @@ local plugins = {
       -- Java Test require Java debugger to work
 
       -- User can set additional keymaps in opts.on_attach
-      if opts.on_attach then
-        opts.on_attach(args)
-      end
 
       -- Avoid race condition by calling attach the first time, since the autocmd won't fire.
       attach_jdtls()
@@ -519,9 +514,9 @@ local plugins = {
     event = "VeryLazy",
   },
   {
-    "chrisgrieser/nvim-origami",
-    event = "BufReadPost",
-    opts = true,
+    "kevinhwang91/nvim-ufo",
+    dependencies = { "kevinhwang91/promise-async" },
+    event = "BufReadPre",
   },
   {
     "stevearc/overseer.nvim",
@@ -555,10 +550,6 @@ local plugins = {
       "nvim-lua/plenary.nvim",
     },
     opts = {},
-  },
-  {
-    "antonk52/bad-practices.nvim",
-    lazy = false,
   },
   {
     "richardbizik/nvim-toc",
